@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>SIGA</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <nav class="topbar">
+        <span class="brand">SIGA</span>
+        <span>
+            <span sec:authorize="isAuthenticated()">
+                Olá, <strong sec:authentication="name"></strong>
+                <form th:action="@{/logout}" method="post" style="display:inline; margin-left:10px;">
+                    <button type="submit">Sair</button>
+                </form>
+            </span>
+            <span sec:authorize="!isAuthenticated()">
+                <a th:href="@{/login}">Entrar</a>
+            </span>
+        </span>
+    </nav>
+    <div class="container">
+        <h1>Bem-vindo</h1>
+        <ul class="home-list">
+            <li><a th:href="@{/aluno}">Cadastrar Aluno</a></li>
+            <li><a th:href="@{/listar}">Listar Alunos</a></li>
+            <li><a th:href="@{/disciplina/cadastrar}">Cadastrar Disciplina</a></li>
+            <li><a th:href="@{/disciplina/listar}">Listar Disciplinas</a></li>
+            <li><a th:href="@{/professor/cadastrar}">Cadastrar Professor</a></li>
+            <li><a th:href="@{/professor/listar}">Listar Professores</a></li>
+            <li><a th:href="@{/professor/atribuir}">Atribuir Professor a Disciplina</a></li>
+        </ul>
+    </div>
+</body>
+</html>

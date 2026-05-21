@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Aluno</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container narrow">
+        <h1>Cadastrar Aluno</h1>
+        <form action="#" th:action="@{/aluno}" method="post" th:object="${aluno}">
+            <label>Nome</label>
+            <input type="text" th:field="*{nome}" required>
+            <label>CPF</label>
+            <input type="text" th:field="*{cpf}" required>
+            <label>Senha</label>
+            <input type="password" th:field="*{password}" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <p><a th:href="@{/login}">Já tem conta? Entrar</a> | <a th:href="@{/}">Voltar</a></p>
+    </div>
+</body>
+</html>

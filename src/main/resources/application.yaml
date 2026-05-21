@@ -1,0 +1,24 @@
+server:
+  port: 7000
+  address: 0.0.0.0
+
+spring:
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://127.0.0.1/aula
+    username: postgres
+    password: 123
+    driverClassName: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    defer-datasource-initialization: false
+
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema-postgresql.sql

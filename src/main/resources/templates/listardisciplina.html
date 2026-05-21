@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Disciplinas Cadastradas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Disciplinas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>SIGLA</th>
+                    <th>PROFESSOR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="disciplina : ${disciplinas}">
+                    <td th:text="${disciplina.id}"></td>
+                    <td th:text="${disciplina.nome}"></td>
+                    <td th:text="${disciplina.sigla}"></td>
+                    <td th:text="${disciplina.professorNome != null ? disciplina.professorNome : '—'}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a th:href="@{/professor/atribuir}">Atribuir professor a disciplina</a> | <a th:href="@{/}">Voltar</a></p>
+    </div>
+</body>
+</html>

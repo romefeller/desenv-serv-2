@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Editar Aluno</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container narrow">
+        <h1>Editar Aluno</h1>
+        <form action="#" th:action="@{'/aluno/' + ${id} + '/editar'}" method="post" th:object="${aluno}">
+            <label>Nome</label>
+            <input type="text" th:field="*{nome}">
+            <label>CPF</label>
+            <input type="text" th:field="*{cpf}">
+            <button type="submit">Salvar</button>
+        </form>
+        <p><a th:href="@{/listar}">Voltar</a></p>
+    </div>
+</body>
+</html>

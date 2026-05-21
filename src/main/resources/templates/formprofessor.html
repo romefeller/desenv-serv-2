@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Professor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container narrow">
+        <h1>Cadastrar Professor</h1>
+        <form action="#" th:action="@{/professor/cadastrar}" method="post" th:object="${professor}">
+            <label>Nome</label>
+            <input type="text" th:field="*{nome}" required>
+            <label>Email</label>
+            <input type="email" th:field="*{email}" required>
+            <label>Titulação</label>
+            <input type="text" th:field="*{titulacao}" placeholder="Ex: Doutor, Mestre">
+            <button type="submit">Cadastrar</button>
+        </form>
+        <p><a th:href="@{/professor/listar}">Listar professores</a> | <a th:href="@{/}">Voltar</a></p>
+    </div>
+</body>
+</html>

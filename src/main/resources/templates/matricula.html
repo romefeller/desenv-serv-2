@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Matricula</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Matricular Aluno em Disciplinas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>SIGLA</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="disciplina : ${disciplinas}">
+                    <td th:text="${disciplina.id}"></td>
+                    <td th:text="${disciplina.nome}"></td>
+                    <td th:text="${disciplina.sigla}"></td>
+                    <td>
+                        <form th:action="@{'/matricula/' + ${alunoid} + '/disciplina/' + ${disciplina.id}}" method="post">
+                            <button type="submit">Matricular</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a th:href="@{/listar}">Voltar</a></p>
+    </div>
+</body>
+</html>

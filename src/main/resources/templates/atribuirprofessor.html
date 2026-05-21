@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Atribuir Professor a Disciplina</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container narrow">
+        <h1>Atribuir Professor a Disciplina</h1>
+        <form action="#" th:action="@{/professor/atribuir}" method="post">
+            <label>Professor</label>
+            <select name="professorId" required>
+                <option value="" disabled selected>Selecione um professor</option>
+                <option th:each="p : ${professores}"
+                        th:value="${p.id}"
+                        th:text="${p.nome + ' (' + p.email + ')'}"></option>
+            </select>
+            <label>Disciplina</label>
+            <select name="disciplinaId" required>
+                <option value="" disabled selected>Selecione uma disciplina</option>
+                <option th:each="d : ${disciplinas}"
+                        th:value="${d.id}"
+                        th:text="${d.nome + ' [' + d.sigla + ']'}"></option>
+            </select>
+            <button type="submit">Atribuir</button>
+        </form>
+        <p><a th:href="@{/disciplina/listar}">Ver disciplinas</a> | <a th:href="@{/}">Voltar</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastro de Disciplina</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container narrow">
+        <h1>Cadastrar Disciplina</h1>
+        <form action="#" th:action="@{/disciplina/cadastrar}" method="post" th:object="${disciplina}">
+            <label>Nome</label>
+            <input type="text" th:field="*{nome}" required>
+            <label>Sigla</label>
+            <input type="text" th:field="*{sigla}" required>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <p><a th:href="@{/disciplina/listar}">Listar disciplinas</a> | <a th:href="@{/}">Voltar</a></p>
+    </div>
+</body>
+</html>

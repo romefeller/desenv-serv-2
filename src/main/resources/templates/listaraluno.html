@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Alunos Cadastrados</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Alunos</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>CPF</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="aluno : ${alunos}">
+                    <td>
+                        <a th:text="${aluno.id}" th:href="@{'/matricula/' + ${aluno.id}}"></a>
+                    </td>
+                    <td th:text="${aluno.nome}"></td>
+                    <td th:text="${aluno.cpf}"></td>
+                    <td>
+                        <a th:href="@{'/aluno/' + ${aluno.id} + '/editar'}">Editar</a>
+                    </td>
+                    <td>
+                        <form th:action="@{'/aluno/' + ${aluno.id} + '/deletar'}" method="post">
+                            <button type="submit" class="danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a th:href="@{/aluno}">Cadastrar aluno</a> | <a th:href="@{/}">Voltar</a></p>
+    </div>
+</body>
+</html>

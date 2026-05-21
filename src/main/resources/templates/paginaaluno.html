@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Perfil do Aluno</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container narrow">
+        <h1>Perfil do Aluno</h1>
+        <p><strong>ID:</strong> <span th:text="${idAluno}"></span></p>
+        <p><strong>Nome:</strong> <span th:text="${nomeAluno}"></span></p>
+        <p><strong>CPF:</strong> <span th:text="${cpfAluno}"></span></p>
+        <p><a th:href="@{/}">Voltar</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Professores Cadastrados</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Professores</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NOME</th>
+                    <th>EMAIL</th>
+                    <th>TITULAÇÃO</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${professores}">
+                    <td th:text="${p.id}"></td>
+                    <td th:text="${p.nome}"></td>
+                    <td th:text="${p.email}"></td>
+                    <td th:text="${p.titulacao}"></td>
+                    <td>
+                        <form th:action="@{'/professor/' + ${p.id} + '/deletar'}" method="post">
+                            <button type="submit" class="danger">Deletar</button>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p><a th:href="@{/professor/cadastrar}">Cadastrar professor</a> | <a th:href="@{/professor/atribuir}">Atribuir a disciplina</a> | <a th:href="@{/}">Voltar</a></p>
+    </div>
+</body>
+</html>
