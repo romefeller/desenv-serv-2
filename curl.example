@@ -1,0 +1,3 @@
+curl -X POST http://localhost:7000/professor-insert \
+  -H "Content-Type: application/json" \
+  -d '{"nome":"Fulano","email":"fulano@fatec.br","titulacao":"Doutor"}'
