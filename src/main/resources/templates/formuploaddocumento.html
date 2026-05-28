@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Documento</title>
+</head>
+<body>
+    <h1>Upload de Imagem</h1>
+    <form method="post" enctype="multipart/form-data">
+        <label>Arquivo:</label>
+        <input type="file" name="file" accept="image/*" required>
+        <br><br>
+        <label>Professor:</label>
+        <select name="professorId" required>
+            <option value="">Selecione</option>
+            <option th:each="p : ${professores}" th:value="${p.id}" th:text="${p.nome}"></option>
+        </select>
+        <br><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <a href="/document">Voltar</a>
+</body>
+</html>

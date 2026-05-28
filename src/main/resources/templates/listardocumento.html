@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentos</title>
+</head>
+<body>
+    <h1>Documentos</h1>
+    <a href="/document/upload">Upload</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Professor</th>
+                <th>Imagem</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="doc : ${documentos}">
+                <td th:text="${doc.nome}"></td>
+                <td th:text="${doc.professor.nome}"></td>
+                <td>
+                    <img th:src="@{/document/{id}(id=${doc.id})}" width="100">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/">Voltar</a>
+</body>
+</html>

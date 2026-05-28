@@ -49,9 +49,10 @@ public class SecurityConfig {
         return http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/login", "/css/**", "/js/**", "/aluno", "/rest/**").permitAll()
+                .requestMatchers("/", "/login", "/css/**", "/js/**", "/aluno", "/rest/**", "/professor-insert").permitAll()
                 .requestMatchers("/matricula/**").hasAuthority("admin")
                 .requestMatchers("/professor/**").hasAuthority("admin")
+                .requestMatchers("/document/**").hasAuthority("admin")
                 .requestMatchers("/disciplina/cadastrar").hasAuthority("admin")
                 .anyRequest().authenticated()
             )

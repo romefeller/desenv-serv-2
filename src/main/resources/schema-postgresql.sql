@@ -1,3 +1,17 @@
+CREATE TABLE IF NOT EXISTS professor (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    titulacao VARCHAR(50)
+);
+
+CREATE TABLE IF NOT EXISTS documento (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    nome VARCHAR(255) NOT NULL,
+    caminho VARCHAR(500) NOT NULL,
+    professor_id UUID REFERENCES professor(id)
+);
+
 CREATE TABLE IF NOT EXISTS aluno(
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     nome VARCHAR(100) NOT NULL,
@@ -35,4 +49,3 @@ ALTER TABLE perfil DROP CONSTRAINT IF EXISTS perfil_unique;
 
 ALTER TABLE perfil
 ADD CONSTRAINT perfil_unique UNIQUE (alunoid);
-
